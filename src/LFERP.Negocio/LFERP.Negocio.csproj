@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyVersion>1.2021.1.16</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interface\" />
+    <Folder Include="Modelo\Cadastro\ParceiroNegocio\" />
+    <Folder Include="Validacao\" />
+    <Folder Include="Servico\" />
+    <Folder Include="Notificacao\" />
+  </ItemGroup>
+
+</Project>
