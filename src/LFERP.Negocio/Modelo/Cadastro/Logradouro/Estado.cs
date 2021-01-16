@@ -1,4 +1,7 @@
-﻿namespace LFERP.Negocio.Modelo.Cadastro.Logradouro
+﻿using System;
+using System.Collections.Generic;
+
+namespace LFERP.Negocio.Modelo.Cadastro.Logradouro
 {
     /// <summary>
     /// Classe responsavel por representar um Estado dentro da aplicação
@@ -12,6 +15,15 @@
 
         public string Nome { get; set; }
         public string Sigla { get; set; }
+
+        #endregion
+
+        #region Relacionamento EF Core
+
+        public Guid IdPais { get; set; }
+        public Pais Pais { get; set; }
+
+        public virtual IEnumerable<Cidade> Cidades { get; set; }
 
         #endregion
     }

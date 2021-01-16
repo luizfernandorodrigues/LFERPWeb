@@ -16,11 +16,13 @@ namespace LFERP.Data.Mapeamento.Cadastro.Logradouro
         {
             builder.ToTable("Pais", "Cadastro");
 
-            builder.HasKey(p => p.Id);
+            builder.HasKey(p => p.Id).HasName("PK_Pais");
             builder.Property(p => p.Id).HasColumnName("Id").HasColumnType("uniqueidentifier");
 
             builder.Property(p => p.Codigo).HasColumnName("Codigo").HasColumnType("VARCHAR(20)").IsRequired(false);
             builder.Property(p => p.Nome).HasColumnName("Nome").HasColumnType("VARCHAR(100)").IsRequired(true);
+
+            builder.HasMany(p => p.Estados).WithOne(e => e.Pais).HasForeignKey(e => e.IdPais).HasConstraintName("FK_Estado_IdPais").IsRequired(true).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -13,10 +13,7 @@ namespace LFERP.Data.Contexto
     {
         #region Construtor
 
-        public ContextoBanco(DbContextOptions options) :base(options)
-        {
-
-        }
+        public ContextoBanco(DbContextOptions options) : base(options) { }
 
         #endregion
 
@@ -24,9 +21,16 @@ namespace LFERP.Data.Contexto
 
         public DbSet<Pais> Paises { get; set; }
         public DbSet<Estado> Estados { get; set; }
-        public DbSet<Cidade> Cidades { get; set; }
-        public DbSet<Cep> Ceps { get; set; }
+      //  public DbSet<Cidade> Cidades { get; set; }
+      //  public DbSet<Cep> Ceps { get; set; }
 
         #endregion
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ContextoBanco).Assembly);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
