@@ -1,6 +1,4 @@
-using System;
-
-namespace LFERP.App.Models
+namespace LFERP.App.ViewModels
 {
     public class ErrorViewModel
     {

@@ -1,18 +1,15 @@
+using AutoMapper;
 using LFERP.App.Data;
 using LFERP.Data.Contexto;
+using LFERP.Data.Repositorio.Cadastro.Logradouro;
+using LFERP.Negocio.Interface.Cadastro.Logradouro;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LFERP.App
 {
@@ -36,6 +33,14 @@ namespace LFERP.App
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddAutoMapper(typeof(Startup));
+
+            services.AddScoped<ContextoBanco>();
+            services.AddScoped<IPaisRepositorio, PaisRepositorio>();
+            services.AddScoped<IEstadoRepositorio, EstadoRepositorio>();
+            services.AddScoped<ICidadeRepositorio, CidadeRepositorio>();
+            services.AddScoped<ICepRepositorio, CepRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

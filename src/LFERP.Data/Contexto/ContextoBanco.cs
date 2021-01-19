@@ -21,8 +21,8 @@ namespace LFERP.Data.Contexto
 
         public DbSet<Pais> Paises { get; set; }
         public DbSet<Estado> Estados { get; set; }
-      //  public DbSet<Cidade> Cidades { get; set; }
-      //  public DbSet<Cep> Ceps { get; set; }
+        public DbSet<Cidade> Cidades { get; set; }
+        public DbSet<Cep> Ceps { get; set; }
 
         #endregion
 
