@@ -118,8 +118,6 @@ namespace LFERP.Data.Migrations
                         .HasConstraintName("FK_Cep_IdCidade")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Cidade");
                 });
 
             modelBuilder.Entity("LFERP.Negocio.Modelo.Cadastro.Logradouro.Cidade", b =>
@@ -130,8 +128,6 @@ namespace LFERP.Data.Migrations
                         .HasConstraintName("FK_Cidade_IdEstado")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Estado");
                 });
 
             modelBuilder.Entity("LFERP.Negocio.Modelo.Cadastro.Logradouro.Estado", b =>
@@ -142,24 +138,8 @@ namespace LFERP.Data.Migrations
                         .HasConstraintName("FK_Estado_IdPais")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Pais");
                 });
 
-            modelBuilder.Entity("LFERP.Negocio.Modelo.Cadastro.Logradouro.Cidade", b =>
-                {
-                    b.Navigation("Ceps");
-                });
-
-            modelBuilder.Entity("LFERP.Negocio.Modelo.Cadastro.Logradouro.Estado", b =>
-                {
-                    b.Navigation("Cidades");
-                });
-
-            modelBuilder.Entity("LFERP.Negocio.Modelo.Cadastro.Logradouro.Pais", b =>
-                {
-                    b.Navigation("Estados");
-                });
 #pragma warning restore 612, 618
         }
     }

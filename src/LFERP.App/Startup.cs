@@ -6,10 +6,13 @@ using LFERP.Negocio.Interface.Cadastro.Logradouro;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
+using System.Globalization;
 
 namespace LFERP.App
 {
@@ -64,6 +67,17 @@ namespace LFERP.App
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            var culturaPadrao = new CultureInfo("pt-BR");
+            var opcoesLocalizacao = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(culturaPadrao),
+                SupportedCultures = new List<CultureInfo> { culturaPadrao},
+                SupportedUICultures = new List<CultureInfo> { culturaPadrao}
+            };
+
+            app.UseRequestLocalization(opcoesLocalizacao);
+
 
             app.UseEndpoints(endpoints =>
             {
